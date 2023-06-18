@@ -65,16 +65,16 @@ async def main():
 
 
     #Creating the chatbot interface
-    st.title("PDFChat :")
+    st.title("Health Document Chat :")
 
     if 'ready' not in st.session_state:
         st.session_state['ready'] = False
 
-    uploaded_file = st.file_uploader("Choose a file", type="pdf")
+    uploaded_file = st.file_uploader("Elija un archivo", type="pdf")
 
     if uploaded_file is not None:
 
-        with st.spinner("Processing..."):
+        with st.spinner("Procesando..."):
         # Add your code here that needs to be executed
             uploaded_file.seek(0)
             file = uploaded_file.read()
@@ -89,10 +89,10 @@ async def main():
     if st.session_state['ready']:
 
         if 'generated' not in st.session_state:
-            st.session_state['generated'] = ["Welcome! You can now ask any questions regarding " + uploaded_file.name]
+            st.session_state['generated'] = ["Puedes preguntar lo que quieras en el idioma que quieras sobre " + uploaded_file.name]
 
         if 'past' not in st.session_state:
-            st.session_state['past'] = ["Hey!"]
+            st.session_state['past'] = ["Hola!"]
 
         # container for chat history
         response_container = st.container()
@@ -102,8 +102,8 @@ async def main():
 
         with container:
             with st.form(key='my_form', clear_on_submit=True):
-                user_input = st.text_input("Query:", placeholder="e.g: Summarize the paper in a few sentences", key='input')
-                submit_button = st.form_submit_button(label='Send')
+                user_input = st.text_input("Pregunta:", placeholder="x ej: Resume el paper en unas pocas frases", key='input')
+                submit_button = st.form_submit_button(label='Enviar')
 
             if submit_button and user_input:
                 output = await conversational_chat(user_input)
