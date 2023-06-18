@@ -113,6 +113,7 @@ streamlit==1.21.0
 streamlit-chat==0.0.2.2
 tenacity==8.2.2
 terminado==0.17.1
+tiktoken
 tinycss2==1.2.1
 toml==0.10.2
 toolz==0.12.0
